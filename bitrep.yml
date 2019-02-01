@@ -1,0 +1,14 @@
+name: bitrep
+root: ~/Projects/bitrep
+
+windows:
+  - main:
+      layout: 1bae,190x43,0,0{95x43,0,0[95x21,0,0,0,95x5,0,22,3,95x4,0,28,9,95x5,0,33,7,95x4,0,39,8],94x43,96,0[94x21,96,0,1,94x21,96,22,2]}
+      panes:
+        - r s
+        - #
+        - #  
+        - redis-server
+        - bin/webpack-dev-server
+        - r c
+        - git status
