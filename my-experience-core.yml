@@ -1,0 +1,12 @@
+# /home/marian/.config/tmuxinator/my-experience-core.yml
+
+name: my-experience-core
+root: ~/Projects/my-experience-core
+
+windows:
+  - server:
+      layout: even-vertical
+      panes:
+        - bundle exec rails server
+        - git status
+  - specs: history -s 'bundle exec rspec'
