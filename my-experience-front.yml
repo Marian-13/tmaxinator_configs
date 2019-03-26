@@ -1,0 +1,12 @@
+# /home/marian/.config/tmuxinator/my-experience-front.yml
+
+name: my-experience-front
+root: ~/Projects/my-experience-front
+
+windows:
+  - dev-server:
+      layout: even-vertical
+      panes:
+        - PORT=3001 yarn start
+        - git status
+  - specs: history -s 'yarn test'
