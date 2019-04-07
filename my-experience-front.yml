@@ -3,6 +3,8 @@
 name: my-experience-front
 root: ~/Projects/my-experience-front
 
+on_project_start: atom ~/Projects/my-experience-front
+
 windows:
   - dev-server:
       layout: even-vertical

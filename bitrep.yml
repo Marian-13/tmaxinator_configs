@@ -1,14 +1,89 @@
+# tmux Terminology/Quick intro
+# https://www.ocf.berkeley.edu/~ckuehl/tmux/
+
+# Where a config file is located?
+#   Ubuntu
+# /home/username/.config/tmuxinator/bitrep.yml
+#   macOS
+# /Users/username/.config/tmuxinator/bitrep.yml
+
+# How to get a username?
+# $ whoami
+
+# How to install?
+#
+# macOS
+# $ brew install tmux
+# $ gem install tmuxinator
+#
+# Ubuntu
+# https://bogdanvlviv.com/posts/tmux/how-to-install-the-latest-tmux-on-ubuntu-16_04.html
+# $ gem install tmuxinator
+
+# How to start a new tmux(tmuxinator) session?
+#
+# $ tmuxinator s bitrep
+
+# How to terminate current session?
+#
+# Ctrl/Command + B
+#   and later :
+#     and type kill-session
+#       and press Enter
+
+# How to navigate between panes?
+#
+# Ctrl/Command + B
+#   and later Arrows
+
+# How to navigate between windows?
+#
+#   To particular window:
+#     Ctrl/Command + B
+#       and later any from 0 to 9
+#
+#   To next window:
+#     Ctrl/Command + B
+#       and later n
+#
+#   To previous window:
+#     Ctrl/Command + B
+#       and later p
+
+
 name: bitrep
 root: ~/Projects/bitrep
 
+# on_project_start: atom ~/Project/bitrep
+on_project_start: code ~/Projects/bitrep
+
 windows:
-  - main:
-      layout: 1bae,190x43,0,0{95x43,0,0[95x21,0,0,0,95x5,0,22,3,95x4,0,28,9,95x5,0,33,7,95x4,0,39,8],94x43,96,0[94x21,96,0,1,94x21,96,22,2]}
+  - server:
+      # How to create a layout?
+      #   1. Create some layout using tmux:
+      #     To split a window horizontally - Сtrl/Command + B and later "
+      #     Vertically                     - Ctrl/Command + B and later %
+      #   2. In another shell:
+      #     $ tmux list-windows
+      #   3. Copy layout in the format as in the next line
+      layout: 53d4,125x35,0,0[125x17,0,0{62x17,0,0,0,62x17,63,0[62x8,63,0,2,62x8,63,9,3]},125x17,0,18,1]
       panes:
-        - r s
-        - #
-        - #  
+        # top-left
+        - bundle exec rails server
+        # top-right
         - redis-server
         - bin/webpack-dev-server
-        - r c
+        # bottom
         - git status
+  - specs: history -s 'bundle exec rspec'
+
+# Credits
+#
+# https://www.ocf.berkeley.edu/~ckuehl/tmux/
+# https://github.com/tmux/tmux
+# http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/tmux.1?query=tmux%26sec=1
+# https://superuser.com/questions/777269/how-to-close-a-tmux-session/777292
+# https://bogdanvlviv.com/posts/tmux/how-to-install-the-latest-tmux-on-ubuntu-16_04.html
+# https://github.com/tmuxinator/tmuxinator
+# https://github.com/tmuxinator/tmuxinator/issues/379
+# https://forum.upcase.com/t/tmux-kill-session-and-dangling-processes/5242

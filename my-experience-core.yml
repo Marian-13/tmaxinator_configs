@@ -3,6 +3,8 @@
 name: my-experience-core
 root: ~/Projects/my-experience-core
 
+on_project_start: atom ~/Projects/my-experience-core
+
 windows:
   - server:
       layout: even-vertical
