@@ -32,6 +32,8 @@
 #       and press Enter
 
 # How to navigate between panes?
+# https://stackoverflow.com/questions/20728102/tmuxinator-initialize-pane-with-multiple-commands
+# 
 #
 # Ctrl/Command + B
 #   and later Arrows
@@ -50,6 +52,14 @@
 #     Ctrl/Command + B
 #       and later p
 
+# How to pass multiple commands?
+# https://stackoverflow.com/questions/20728102/tmuxinator-initialize-pane-with-multiple-commands
+# 
+# Example:
+#   on_project_start:
+#     - code ~/Projects/my-blog
+#     - open -na "Google Chrome" --args --new-window --incognito "http://localhost:4567"
+# Note: open is macOS specific command
 
 name: bitrep
 root: ~/Projects/bitrep
