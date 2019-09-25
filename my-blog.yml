@@ -1,0 +1,13 @@
+name: my-blog
+root: ~/Projects/my-blog
+
+on_project_start:
+  - code ~/Projects/my-blog
+  - open -na "Google Chrome" --args --new-window --incognito "http://localhost:4567"
+
+windows:
+  - main:
+      layout: even-vertical
+      panes:
+        - bundle exec middleman server
+        - git status
